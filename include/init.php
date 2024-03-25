@@ -9,6 +9,8 @@ require_once("database.php");
 require_once ('Session.php');
 require_once ('Functions.php');
 require_once ('Pagination.php');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 // kết nối mới đến database
 $db = new DB();
@@ -27,7 +29,7 @@ if ($session->get() != '') {
 }
 
 /// Get info User 
-$sqlu = "SELECT * FROM tbl_user where username = '$user' limit 1";
+$sqlu = "SELECT * FROM tbl_accounts where username = '$user' limit 1";
 if ($db->num_rows($sqlu)) {
     $data_user = $db->fetch_assoc($sqlu, 1);
 }
