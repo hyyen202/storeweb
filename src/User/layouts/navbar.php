@@ -10,7 +10,7 @@
             <div class="nav-outer">
               <ul class="nav navbar-nav">
                 <li class="active dropdown yamm-fw"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a> </li>
-                <li class="dropdown yamm mega-menu"> <a href="category.html" data-hover="dropdown" class="dropdown-toggle" >Quần áo</a>
+                <li class="dropdown yamm mega-menu"> <a href="?url=pages&p=1" data-hover="dropdown" class="dropdown-toggle" >Quần áo</a>
                   <ul class="dropdown-menu container">
                     <li>
                       <div class="yamm-content ">
