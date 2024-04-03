@@ -126,6 +126,8 @@
 <!-- For demo purposes – can be removed on production : End --> 
 
 <!-- JavaScripts placed at the end of the document so the pages load faster --> 
+<script src="../custom.js"></script>
+<script src="../controller.js"></script>
 <script src="../assets\js\jquery-1.11.1.min.js"></script> 
 <script src="../assets\js\bootstrap.min.js"></script> 
 <script src="../assets\js\bootstrap-hover-dropdown.min.js"></script> 
@@ -138,5 +140,6 @@
 <script src="../assets\js\bootstrap-select.min.js"></script> 
 <script src="../assets\js\wow.min.js"></script> 
 <script src="../assets\js\scripts.js"></script>
+
 </body>
 </html>

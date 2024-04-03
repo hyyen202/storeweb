@@ -1,18 +1,24 @@
-<?php require('../src/Admin/layouts/header.php') ?>
+<?php require('../src/Admin/layouts/header.php');
+      require('../src/Admin/layouts/sidebar.php');
+      require('../src/Admin/layouts/navbar.php');
 
+      $pages = isset($_GET['p']) ? $_GET['p'] : '';
 
-<body class="g-sidenav-show   bg-gray-100">
-  <div class="min-height-300 bg-primary position-absolute w-100"></div>
-    <?php require('../src/Admin/layouts/sidebar.php') ?>
-
-  <main class="main-content position-relative border-radius-lg ">
-    <!-- Navbar -->
-    <?php require('../src/Admin/layouts/navbar.php') ?>
-
-    <!-- End Navbar -->
-    <div class="container-fluid py-4">
-       
-    <?php require('../src/Admin/views/home.php') ?>
-    <?php //require('../controller/pages.php') ?>
-    
-<?php require('../src/Admin/layouts/footer.php') ?>
+      if(isset($pages)) {
+          switch ($pages) {
+            case 'product':
+                include('../src/Admin/views/product/index.php');
+                break;
+              case 'customers': 
+                  include('../src/Admin/views/customers/index.php');
+                  break;
+              case 'profile': 
+                include('../src/Admin/views/customers/profile.php');
+                  break;
+              default:
+                  include('../src/Admin/views/home.php');
+                  break;
+          }
+      } 
+     require('../src/Admin/layouts/footer.php') 
+    ?>

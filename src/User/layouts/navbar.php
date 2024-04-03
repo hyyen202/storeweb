@@ -9,8 +9,8 @@
           <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
             <div class="nav-outer">
               <ul class="nav navbar-nav">
-                <li class="active dropdown yamm-fw"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a> </li>
-                <li class="dropdown yamm mega-menu"> <a href="?url=pages&p=1" data-hover="dropdown" class="dropdown-toggle" >Quần áo</a>
+                <li class="active dropdown yamm-fw"> <a href="/store/argon" >Home</a> </li>
+                <li class="dropdown yamm mega-menu"> <a href="?p=1" data-hover="dropdown" class="dropdown-toggle" >Quần áo</a>
                   <ul class="dropdown-menu container">
                     <li>
                       <div class="yamm-content ">
@@ -60,7 +60,7 @@
                   </ul>
                 </li>
                 <li class="dropdown mega-menu"> 
-                <a href="category.html" data-hover="dropdown" class="dropdown-toggle" >Phụ kiện</a>
+                <a href="?p=2" data-hover="dropdown" class="dropdown-toggle" >Phụ kiện</a>
                   <ul class="dropdown-menu container">
                     <li>
                       <div class="yamm-content">
@@ -105,9 +105,9 @@
                       <!-- /.yamm-content --> </li>
                   </ul>
                 </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Sức khỏe & Làm đẹp <span class="menu-label new-menu hidden-xs">new</span> </a> </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Thiết bị điện tử</a> </li>
-                <li class="dropdown"> <a href="contact.html">Đồ gia dụng</a> </li>
+                <li class="dropdown hidden-sm"> <a href="?p=3">Sức khỏe & Làm đẹp <span class="menu-label new-menu hidden-xs">new</span> </a> </li>
+                <li class="dropdown hidden-sm"> <a href="?p=4">Thiết bị điện tử</a> </li>
+                <li class="dropdown"> <a href="?url=pages&p=5">Đồ gia dụng</a> </li>
 
                 <li class="dropdown  navbar-right special-menu"> <a href="#">Ưu đãi hôm nay</a> </li>
               </ul>

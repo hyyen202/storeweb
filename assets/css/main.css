@@ -88,11 +88,7 @@ body {
   background-color: #f3f3f3;
 }
 
-.cnt-home {
-  background-color: #f3f3f3;
-  margin-top: -1.9rem;
-  margin-right: 0;
-}
+.cnt-home {background-color: #f3f3f3;}
 
 ul {
   margin: 0;
@@ -1226,7 +1222,7 @@ header{background:#157ed2}
   display: inline-block;
   float: right;
   margin: 0px;
-  padding: 1.7rem;
+  padding: 12px 19px 12px;
   text-align: center;
     background-color: #fdd922;
     border: 1px solid #e0bc27;
@@ -4708,7 +4704,6 @@ age-container #owl-main .owl-next {
     position: absolute;
     top: 0px;
     right: 0px;
-
   }
   .category-carousel .item {
     height: auto;

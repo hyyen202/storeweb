@@ -1,4 +1,4 @@
-
+<main class="main-content position-relative border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur" data-scroll="false">
       <div class="container-fluid py-1 px-3">
@@ -19,7 +19,7 @@
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-white font-weight-bold px-0">
-                <i class="fa fa-user me-sm-1"></i>
+              <i class="fa fa-circle fa-xs text-success" aria-hidden="true"></i>
                 <span class="d-sm-inline d-none">Admin</span>
               </a>
             </li>
@@ -114,3 +114,5 @@
         </div>
       </div>
     </nav>
+    
+    <div class="container-fluid py-4">

@@ -19,6 +19,9 @@
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-LcEKk9NJDY3mWdiZ4ey7QI47zo3AizjNkzZkujmOi5vu9i+9pLv7X4JojDYTo2ox" crossorigin="anonymous"></script>
+
+  
 </head>
 
 <body class="">
@@ -84,24 +87,23 @@
           <div class="row">
             <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
               <div class="card card-plain">
+                <div ></div>
                 <div class="card-header pb-0 text-start">
+                  <p class="mb-0" id="result"></p>
                   <h4 class="font-weight-bolder">Đăng nhập | ARGON</h4>
                   <p class="mb-0">Vui lòng nhập email và mật khẩu</p>
                 </div>
                 <div class="card-body">
-                  <form role="form">
+                  <form role="form" id="login_form">
                     <div class="mb-3">
-                      <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
+                      <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email" id= "email">
                     </div>
                     <div class="mb-3">
-                      <input type="email" class="form-control form-control-lg" placeholder="Mật khẩu" aria-label="Password">
+                      <input type="password" class="form-control form-control-lg" placeholder="Mật khẩu" aria-label="Password" id= "password">
                     </div>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="rememberMe">
-                      <label class="form-check-label" for="rememberMe">Lưu mật khẩu</label>
-                    </div>
+                      <a  class = "small" id ="register_ctr" >Đăng ký tài khoản</a>
                     <div class="text-center">
-                      <button type="button" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Đăng nhập</button>
+                      <button type="button" id= "login" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Đăng nhập</button>
                     </div>
                   </form>
                 </div>
@@ -125,6 +127,8 @@
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -138,6 +142,9 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+  <script src="../custom.js"></script>
+  <script src="../controller.js"></script>
+
 </body>
 
 </html>

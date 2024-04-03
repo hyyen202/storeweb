@@ -101,11 +101,16 @@
     </div>
   </div>
   <!--   Core JS Files   -->
+  <script src="../custom.js"></script>
+  <script src="../page.js"></script>
+  <script src="../controller.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
   <script>
     var ctx1 = document.getElementById("chart-line").getContext("2d");
 

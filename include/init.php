@@ -29,7 +29,7 @@ if ($session->get() != '') {
 }
 
 /// Get info User 
-$sqlu = "SELECT * FROM tbl_accounts where username = '$user' limit 1";
+$sqlu = "SELECT * FROM tbl_accounts where email = '$user' limit 1";
 if ($db->num_rows($sqlu)) {
     $data_user = $db->fetch_assoc($sqlu, 1);
 }

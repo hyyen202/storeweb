@@ -253,6 +253,7 @@
             </div>
             <!-- /.item --> 
           </div>
+
           <!-- /.home-owl-carousel --> 
         </section>
         <!-- /.section --> 
