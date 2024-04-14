@@ -127,7 +127,7 @@
 
 <!-- JavaScripts placed at the end of the document so the pages load faster --> 
 <script src="../custom.js"></script>
-<script src="../controller.js"></script>
+<script src="../admin.js"></script>
 <script src="../assets\js\jquery-1.11.1.min.js"></script> 
 <script src="../assets\js\bootstrap.min.js"></script> 
 <script src="../assets\js\bootstrap-hover-dropdown.min.js"></script> 

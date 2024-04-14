@@ -14,3 +14,4 @@
         </div>
     </div>
 </div>
+<script src="../assets/js/plugins/chartjs.min.js"></script>

@@ -12,3 +12,7 @@ define('LIMIT_ROW', 5);
 define('LIVE_COOKIE', 30);
 $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
 // echo "<script>console.log('Import Config !!')</script>";
+
+define('success', 'success');
+define('error', 'danger');
+define('warning', 'warning');

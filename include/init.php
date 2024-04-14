@@ -4,6 +4,7 @@
 require_once("config.php");
 // Kết nối database 
 require_once("database.php");
+require_once("Admin_func.php");
 
 //IMPORT thư viện
 require_once ('Session.php');

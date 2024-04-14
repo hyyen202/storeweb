@@ -6,9 +6,18 @@
 
       if(isset($pages)) {
           switch ($pages) {
+            //product
             case 'product':
                 include('../src/Admin/views/product/index.php');
                 break;
+            case 'update_p':
+                include('../src/Admin/views/product/update.php');
+                break;
+            case 'add_p':
+                include('../src/Admin/views/product/add.php');
+                break;
+           
+            //customers
               case 'customers': 
                   include('../src/Admin/views/customers/index.php');
                   break;

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CKEditor Example</title>
+    <!-- Link tới CKEditor -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.0.0/classic/ckeditor.js"></script>
+</head>
+<body>
+    <h1>CKEditor Example</h1>
+    <textarea id="editor"></textarea>
+
+    <script>
+        // Khởi tạo CKEditor với ID của textarea là 'editor'
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+</body>
+</html>
