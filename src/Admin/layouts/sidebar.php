@@ -44,25 +44,25 @@
                 <span class="nav-link-text ms-1">Quản lý khách hàng</span>
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link " href="?p=revenue">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
                 </div>
                 <span class="nav-link-text ms-1">Thống kê doanh thu</span>
               </a>
-            </li>
-            <li class="nav-item mt-3">
+            </li> -->
+            <!-- <li class="nav-item mt-3">
               <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Tài khoản</h6>
-            </li>
-            <li class="nav-item">
+            </li> -->
+            <!-- <li class="nav-item">
               <a class="nav-link " href="?p=profile">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
                 </div>
                 <span class="nav-link-text ms-1">Xem chi tiết</span>
               </a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link " href="?url=logout">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">

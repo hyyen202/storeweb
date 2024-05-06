@@ -16,10 +16,16 @@
             case 'add_p':
                 include('../src/Admin/views/product/add.php');
                 break;
+            case 'orders':
+                include('../src/Admin/views/product/orders.php');
+                break;
            
             //customers
               case 'customers': 
                   include('../src/Admin/views/customers/index.php');
+                  break;
+              case 'historic_orders': 
+                  include('../src/Admin/views/customers/historic_orders.php');
                   break;
               case 'profile': 
                 include('../src/Admin/views/customers/profile.php');

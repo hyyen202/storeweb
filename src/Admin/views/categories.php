@@ -1,4 +1,4 @@
-<div class="col-lg-5">
+<div class="col-lg-5" id = "buy">
         <div class="card">
             <div class="card-header pb-0 p-3">
                 <h6 class="mb-0">Danh mục</h6>
