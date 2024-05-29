@@ -1,6 +1,6 @@
 <?php
   $id = $_GET['i'];
-  $new_orders = new_orders($db, $id);
+  $new_orders = orders($db, $id);
   foreach($new_orders as $order){
 ?>
 <div class="container-fluid py-4">
@@ -12,6 +12,16 @@
                         <div class="d-flex align-items-center col-md-9 ">
                             <p class="mb-0">Thông tin đơn hàng</p>
                         </div>
+                        <div class="col-md-2 border rounded d-flex justify-content-center align-items-center">
+                            <?php 
+                                if($order['status'] == 0){
+                                    echo '<a class="btn btn-link text-danger d-flex align-items-center justify-content-center text-gradient p-0 mb-0">Chưa nhận</a>';
+                                }else{
+                                    echo '<a class="btn btn-link text-success d-flex align-items-center justify-content-center text-gradient p-0 mb-0">Đã nhận</a>';
+                                }
+                            ?>
+                        </div>
+
                     </div>
                 </div>
                 <div class="card-body">
@@ -106,13 +116,8 @@
 
                     </form>
                     <div class="text-center mt-2">
-                        
                         <div class="h6 font-weight-300">
                             <i class="ni location_pin mr-2"></i>Thanh toán: <?php echo $order['total']?>vnd
-                        </div>
-                        <div>
-                          <button class="btn btn-secondary btn-sm ms-auto" id="accept">Xác nhận</button>
-                          <button class="btn btn-secondary btn-sm ms-auto" id="cancel">Hủy</button>
                         </div>
                     </div>
                 </div>

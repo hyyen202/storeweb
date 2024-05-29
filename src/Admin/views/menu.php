@@ -5,22 +5,21 @@
             <div class="card-body p-3">
                 <div class="row">
                     <div class="col-8">
-                        <div class="numbers">
-                            <p class="text-sm mb-0 text-uppercase font-weight-bold">Đã bán</p>
-                            <h5 class="font-weight-bolder">
-                            <?php 
-                                $count_orders = count_orders($db);
-                                foreach($count_orders as $count)
-                                    {
-                                        echo $count['count'];
-                                    }
-                            ?>
-                            </h5>
-                            <p class="mb-0">
-                                <span class="text-success text-sm font-weight-bolder">+55%</span>
-                            trong tháng
-                            </p>
-                        </div>
+                        <a href ="?p=bought">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Đã bán</p>
+                                <h5 class="font-weight-bolder">
+                                <?php 
+                                    $count_orders = count_orders($db);
+                                    foreach($count_orders as $count)
+                                        {
+                                            echo $count['count'];
+                                        }
+                                ?>
+                                </h5>
+                                
+                            </div>
+                        </a>
                     </div>
                     <div class="col-4 text-end">
                         <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
@@ -49,10 +48,7 @@
                                     }
                             ?>
                             </h5>
-                            <p class="mb-0">
-                                <span class="text-success text-sm font-weight-bolder">+13%</span>
-                                hôm qua
-                            </p>
+                            
                         </div>
                     </div>
                     <div class="col-4 text-end">
@@ -81,10 +77,7 @@
                                 }
                         ?>
                         </h5>
-                        <p class="mb-0">
-                            <span class="text-danger text-sm font-weight-bolder">-2%</span>
-                            trong tháng
-                        </p>
+                        
                     </div>
                 </div>
                 <div class="col-4 text-end">
@@ -106,9 +99,7 @@
                         <h5 class="font-weight-bolder">
                             $103,090
                         </h5>
-                        <p class="mb-0">
-                            <span class="text-success text-sm font-weight-bolder">+5%</span> trong tháng
-                        </p>
+                        
                     </div>
                 </div>
                 <div class="col-4 text-end">

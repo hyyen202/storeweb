@@ -46,7 +46,7 @@
                                         <p class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 "><?php echo $i; ?></p>
                                     </td>
                                     <td>
-                                        <a href= "?p=profile"class="d-flex px-2 py-1">
+                                        <a href= "?p=profile&i=<?php echo $customer['id'] ?>"class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
                                                 <h6 class="mb-0 text-sm"><?php echo $customer['name'] ?></h6>
                                             </div>

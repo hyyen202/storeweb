@@ -84,6 +84,7 @@ class DB
             {
                 if ($type == 0)
                 {
+                    $data = []; // Khởi tạo biến $data trước khi sử dụng
                     // Lấy nhiều dữ liệu gán vào mảng
                     while ($row = mysqli_fetch_assoc($query))
                     {
@@ -97,9 +98,16 @@ class DB
                     $data = mysqli_fetch_assoc($query);
                     return $data;
                 }
-            }       
+            }
+            else
+            {
+                // Xử lý lỗi khi truy vấn không thành công
+                // Ví dụ: Log lỗi, thông báo lỗi, ...
+                echo "Lỗi trong quá trình thực hiện truy vấn: " . mysqli_error($this->cn);
+            }
         }
     }
+
  
     // Hàm lấy ID cao nhất
     public function insert_id()

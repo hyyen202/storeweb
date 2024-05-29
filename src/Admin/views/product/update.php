@@ -24,7 +24,7 @@
 
                     
                 ?>
-                <form id="update" method="post" enctype="multipart/form-data">
+                <form id="update_form" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -110,9 +110,17 @@
                                 <label for="status_choose" class="form-control-label">Trạng thái</label>
                                 <select class="form-control" id="status_choose" name="status_choose">
                                     <?php 
-                                        $status = ($item['status'] == 1) ? 'Còn hàng' : 'Hết hàng';
-                                        echo '<option value="1"'; if ($item['status'] == 1) echo ' selected'; echo '>Còn hàng</option>';
-                                        echo '<option value="0"'; if ($item['status'] == 0) echo ' selected'; echo '>Hết hàng</option>';
+                                        $status = ($item['status'] == 1);
+                                        if($status)
+                                        {
+                                            echo '<option value="1" selected>Còn hàng</option>';
+                                            echo '<option value="0">Hết hàng</option>';
+                                        }else{
+                                            echo '<option value="1" >Còn hàng</option>';
+                                            echo '<option value="0" selected >Hết hàng</option>';
+                                        }
+                                        
+                                        
                                     ?>
                                 </select>
                             </div>
@@ -159,7 +167,6 @@ $(document).ready(function() {
                     detail = $('#detail').val();
                     status= $('#status_choose').val();
                     sp = <?php echo $id?>;
-
                 var formData = new FormData();
                 // Append other form data
                 formData.append('type_choose', type_choose);
@@ -187,7 +194,7 @@ $(document).ready(function() {
                     $('#results').delay(5000).fadeOut();
                 });
                 if (res.type == "success") {
-                    $("#update")[0].reset();
+                    $("#update_form")[0].reset();
                 }
             },
             error: function(error) {

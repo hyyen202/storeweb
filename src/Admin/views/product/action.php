@@ -67,7 +67,7 @@ switch ($act) {
     
         echo json_encode($result);
         break;
-        case 'update_p':
+    case 'update_p':
             $result = array();
             
             // Thu thập dữ liệu mới từ form
@@ -112,7 +112,7 @@ switch ($act) {
                             `update_at`='$time',`detail`='$new_detail',`discount`=$new_discount,`category`=$new_category,
                             `type`='$new_type',`status`=$new_status WHERE id = $id");
                 $result['type'] = 'success';
-                $result['message'] = "<b>Cập nhật thành công!</b> Bạn đã cập nhật sản phẩm thành công";
+                $result['message'] = "<b>Cập nhật thành công!</b> Bạn đã cập nhật sản phẩm thành công".$new_status;
             }
             
         echo json_encode($result);
@@ -121,23 +121,130 @@ switch ($act) {
     case 'add_category':
         $result = array();
         $category = check_input($_POST['category'], $db);
-        // Kiểm tra danh muc đã tồn tại chưa
-        $check = $db->num_rows("SELECT * FROM `tbl_category` WHERE name = '$category'");
         
-        if (!$category) {
-            $result['type'] = error;
-            $result['message'] = "<b>Thất bại!</b> Vui lòng điền đầy đủ thông tin!!";
-        } elseif ($check > 0) {
-            $result['type'] = warning;
-            $result['message'] = "<b>Thất bại!</b> Danh mục này đã tồn tại !!";
+        if (isset($_FILES['img']) && !empty($_FILES['img']['name'][0])) { // Kiểm tra xem có file được chọn không
+            $uploaded_images = $_FILES['img'];
+            $image_names = array();
+    
+            // Thư mục lưu trữ hình ảnh
+            $target_dir = "../../../../assets/img/category/";
+    
+            // Duyệt qua từng hình ảnh đã upload
+            foreach ($uploaded_images['tmp_name'] as $key => $tmp_name) {
+                $image_name = $uploaded_images['name'][$key];
+                $target_file = $target_dir . basename($image_name);
+    
+                if (move_uploaded_file($tmp_name, $target_file)) {
+                    // Hình ảnh đã được upload thành công, thêm tên vào mảng
+                    $image_names[] = $image_name;
+                } else {
+                    // Xử lý lỗi nếu có
+                    $result['type'] = error;
+                    $result['message'] = "Upload tệp thất bại";
+                    echo json_encode($result);
+                    exit(); // Kết thúc xử lý nếu có lỗi
+                }
+            }
+            // Chuyển mảng tên hình ảnh thành chuỗi
+            $image_names_str = implode(',', $image_names);
+           // Kiểm tra danh muc đã tồn tại chưa
+        $check = $db->num_rows("SELECT * FROM `tbl_category` WHERE name = '$category'");
+            
+            if ($check > 0) {
+                $result['type'] = warning;
+                $result['message'] = "<b>Thất bại!</b> Danh mục này đã tồn tại !!";
+            } else if(!$category) {
+                $result['type'] = error;
+                $result['message'] = "<b>Thất bại!</b> Vui lòng điền đầy đủ thông tin !!";
+            }
+            else{
+                $result['type'] = success;
+                $result['message'] = "<b>Thành công!</b> Bạn đã thêm danh mục thành công";
+                $db->query("INSERT INTO `tbl_category`( `name`, `status`, `img`) 
+                            VALUES ('$category', 1, '$image_names_str')");
+            }
         } else {
-            $result['type'] = success;
-            $result['message'] = "<b>Thành công!</b> Bạn đã thêm danh mục thành công";
-            $db->query("INSERT INTO `tbl_category`( `name`, `status`) 
-                        VALUES ('$category', 1)");
+            // Không có tệp tin được chọn hoặc có lỗi khi upload
+            $result['type'] = error;
+            $result['message'] = "Vui lòng chọn ít nhất một tệp tin hình ảnh";
         }
         echo json_encode($result);
     break;
+    case 'update_category':
+        $result = array();
+        
+        // Validate and sanitize input
+        $category = check_input($_POST['category'], $db);
+        $id = check_input($_POST['id'], $db);
+        $status = check_input($_POST['status'], $db);
+        
+        if (isset($_FILES['img']) && !empty($_FILES['img']['name'][0])) {
+            $uploaded_images = $_FILES['img'];
+            $image_names = array();
+            $target_dir = "../../../../assets/img/category/";
+            
+            foreach ($uploaded_images['tmp_name'] as $key => $tmp_name) {
+                $image_name = $uploaded_images['name'][$key];
+                $target_file = $target_dir . basename($image_name);
+                
+                if (move_uploaded_file($tmp_name, $target_file)) {
+                    $image_names[] = $image_name;
+                } else {
+                    $result['type'] = 'error';
+                    $result['message'] = "Upload tệp thất bại";
+                    echo json_encode($result);
+                    exit();
+                }
+            }
+            
+            $image_names_str = implode(',', $image_names);
+            
+            $check = $db->num_rows("SELECT * FROM `tbl_category` WHERE name = '$category' AND id != '$id'");
+            
+            if (empty($category)) {
+                $result['type'] = 'error';
+                $result['message'] = "<b>Thất bại!</b> Vui lòng điền đầy đủ thông tin !!";
+            } elseif ($check > 0) {
+                $result['type'] = 'error';
+                $result['message'] = "<b>Thất bại!</b> Danh mục đã tồn tại !!";
+            } else {
+                $db->query("UPDATE `tbl_category` SET `name`='$category', `status`='$status', `img`='$image_names_str' WHERE id = $id");
+                $result['type'] = 'success';
+                $result['message'] = "<b>Thành công!</b> Bạn đã cập nhật danh mục thành công";
+            }
+        } else {
+            $result['type'] = 'error';
+            $result['message'] = "Vui lòng chọn ít nhất một tệp tin hình ảnh";
+        }
+        
+        echo json_encode($result);
+        break;
+    case 'update_type':
+        $result = array();
+        
+        // Validate and sanitize input
+        $type = check_input($_POST['type'], $db);
+        $id = check_input($_POST['id'], $db);
+        $status = check_input($_POST['status'], $db);
+        
+            $check = $db->num_rows("SELECT * FROM `tbl_type` WHERE name = '$type' AND id != '$id'");
+            
+            if (empty($type)) {
+                $result['type'] = 'error';
+                $result['message'] = "<b>Thất bại!</b> Vui lòng điền đầy đủ thông tin !!";
+            } elseif ($check > 0) {
+                $result['type'] = 'error';
+                $result['message'] = "<b>Thất bại!</b> Loại đã tồn tại !!";
+            } else {
+                $db->query("UPDATE `tbl_type` SET `name`='$type', `status`='$status' WHERE id = $id");
+                $result['type'] = 'success';
+                $result['message'] = "<b>Thành công!</b> Bạn đã cập nhật loại thành công";
+            }
+        
+        
+        echo json_encode($result);
+        break;
+    
     case 'add_type':
         $result = array();
         $type      = check_input($_POST['type'], $db);
@@ -155,6 +262,22 @@ switch ($act) {
             $result['message'] = "<b>Thành công!</b> Bạn đã thêm loại sản phẩm thành công";
             $db->query("INSERT INTO `tbl_type`( `name`, `status`) 
                         VALUES ('$type', 1)");
+        }
+        echo json_encode($result);
+    break;
+    case 'accept':
+        $result = array();
+        $idbill = check_input($_POST['idbill'], $db);
+        // Kiểm tra danh muc đã tồn tại chưa
+        $check = $db->num_rows("SELECT * FROM `tbl_bill` WHERE status = 1 and id = $idbill");
+        
+        if ($check > 0) {
+            $result['type'] = warning;
+            $result['message'] = "<b>Thất bại!</b> Hóa đơn này đã duyệt !!";
+        } else {
+            $result['type'] = success;
+            $result['message'] = "<b>Thành công!</b> Bạn đã bán đơn hàng thành công";
+            $db->query("UPDATE `tbl_bill` SET status = 1 WHERE id = $idbill");
         }
         echo json_encode($result);
     break;

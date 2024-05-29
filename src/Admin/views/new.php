@@ -1,4 +1,4 @@
-<div class="col-lg-5">
+<div class="col-lg-6">
     <div class="card card-carousel overflow-hidden h-100 p-0">
         <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">
             <div class="carousel-inner border-radius-lg h-100">

@@ -92,7 +92,7 @@
                     </div>
                 </form>
                 <hr class="horizontal dark">
-                <div class="d-flex align-items-center">
+                <!-- <div class="d-flex align-items-center">
                     <p class="mb-3">THÊM DANH MỤC VÀ LOẠI SẢN PHẨM</p>
                 </div>
                 <div id="result"></div>
@@ -129,7 +129,7 @@
                         </div>
                     </div>
                     <hr class="horizontal dark">
-                </form>
+                </form> -->
             </div>
         </div>
     </div>
